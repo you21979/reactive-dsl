@@ -1,0 +1,48 @@
+[param_static]
+lv=1
+str=10
+dex=10
+agi=10
+mnd=10
+
+[equip_static]
+power=0
+defense=0
+
+[buff_static]
+max_hp=1.0
+max_mp=1.0
+str=0
+dex=0
+agi=0
+mnd=0
+
+[buff_ratio]
+max_hp=1.0
+max_mp=1.0
+str=1.0
+dex=1.0
+agi=1.0
+mnd=1.0
+
+[calc]
+max_hp=param_static.lv * param_static.str
+max_mp=param_static.lv * param_static.mnd
+
+[param_current]
+lv=param_static.lv
+str=(param_static.str * buff_ratio.str) + buff_static.str
+dex=(param_static.dex * buff_ratio.dex) + buff_static.dex
+agi=(param_static.agi * buff_ratio.agi) + buff_static.agi
+mnd=(param_static.mnd * buff_ratio.mnd) + buff_static.mnd
+max_hp=(calc.max_hp * buff_ratio.max_hp) + buff_static.max_hp
+max_mp=(calc.max_mp * buff_ratio.max_mp) + buff_static.max_mp
+
+[battle]
+power=(param_current.str * equip_static.power) + 1
+defense=equip_static.defense + 5
+
+[battle_current]
+power=(battle.power * buff_ratio.power) + buff_static.power
+defense=(battle.defense * buff_ratio.defense) + buff_static.defense
+
