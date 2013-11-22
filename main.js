@@ -12,6 +12,8 @@ var analyze = function(fsm, v){
     var len = v.length;
     if(len === 0){
         return;
+    }else if(v[0] === '#'){
+        return;
     }else if(v[0] === '['){
         fsm.setState('ENTRY', v.substr(1, len - 2));
     }else{

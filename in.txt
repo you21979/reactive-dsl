@@ -1,3 +1,4 @@
+# basic param
 [param_static]
 lv=1
 str=10
