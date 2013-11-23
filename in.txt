@@ -11,8 +11,8 @@ power=0
 defense=0
 
 [buff_static]
-max_hp=1.0
-max_mp=1.0
+max_hp=0
+max_mp=0
 str=0
 dex=0
 agi=0
